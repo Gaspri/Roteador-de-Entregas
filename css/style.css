@@ -1,0 +1,370 @@
+/* ============================================================
+   ROTEADOR DE ENTREGAS — CSS global
+   Tema escuro moderno · 100% HTML + CSS · sem JS · sem SQL
+   ============================================================ */
+
+:root{
+  --bg:#0a0f1c;         /* fundo geral            */
+  --card:#131a2c;       /* cartões                */
+  --card2:#121a2c;      /* itens internos         */
+  --campo:#0d1322;      /* campos de formulário   */
+  --line:#232e48;       /* bordas                 */
+  --txt:#e9eef8;
+  --mut:#8fa0c0;
+  --acc:#ffb020;        /* âmbar principal        */
+  --acc2:#ff7a1a;
+  --ok:#34d399;
+  --info:#60a5fa;
+  --warn:#fbbf24;
+  --err:#f87171;
+  --sombra:0 12px 30px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:var(--bg);color:var(--txt);
+  font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+.mono{font-family:ui-monospace,SFMono-Regular,Consolas,Menlo,monospace;letter-spacing:.05em}
+
+/* ---------------- ESTRUTURA ---------------- */
+.app{display:grid;grid-template-columns:238px 1fr;min-height:100vh}
+
+.sidebar{
+  position:sticky;top:0;height:100vh;
+  display:flex;flex-direction:column;gap:22px;padding:22px 14px;
+  background:linear-gradient(180deg,#0e1526,#0a0f1c);
+  border-right:1px solid var(--line);
+}
+.logo{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:800;padding:0 6px}
+.logo-ic{
+  width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:20px;flex:none;
+  background:linear-gradient(135deg,var(--acc),var(--acc2));
+  box-shadow:0 8px 20px rgba(255,122,26,.35);
+}
+.logo-txt b{color:var(--acc)}
+
+.nav{display:flex;flex-direction:column;gap:4px}
+.nav a{
+  display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:11px;
+  color:var(--mut);font-weight:600;border-left:3px solid transparent;transition:.15s;
+}
+.nav a:hover{background:#16203a;color:var(--txt)}
+.nav a.ativo{background:rgba(255,176,32,.1);color:var(--acc);border-left-color:var(--acc)}
+.nav a.sair{margin-top:12px;color:#c96f6f}
+.nav a.sair:hover{background:#2a1414;color:var(--err)}
+
+.side-foot{
+  margin-top:auto;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--mut);
+  background:var(--campo);border:1px solid var(--line);border-radius:12px;padding:10px 12px;
+}
+.dot{width:8px;height:8px;border-radius:50%;flex:none}
+.dot.ok{background:var(--ok);box-shadow:0 0 10px var(--ok)}
+.dot.warn{background:var(--warn)}
+.dot.err{background:var(--err)}
+.dot.info{background:var(--info)}
+
+main{padding:26px 30px 40px;display:flex;flex-direction:column;gap:18px;min-width:0}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.titulo h1{font-size:22px;letter-spacing:-.01em}
+.titulo p{color:var(--mut);font-size:13px}
+.user{display:flex;align-items:center;gap:10px}
+.avatar{
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex:none;
+  font-size:12px;font-weight:800;background:linear-gradient(135deg,#31456e,#22304d);
+  border:1px solid var(--line);
+}
+.avatar.sm{width:28px;height:28px;font-size:10px}
+
+.rodape{
+  color:var(--mut);font-size:12px;text-align:center;
+  border-top:1px solid var(--line);padding-top:14px;margin-top:6px;
+}
+
+/* ---------------- CARTÕES / GRADES ---------------- */
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:18px;min-width:0;transition:border-color .15s;
+}
+.card:hover{border-color:#2e3b5e}
+.card-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.card-head h2{font-size:15px;letter-spacing:.01em}
+.card-link{font-size:12px;font-weight:700;color:var(--acc)}
+.card-link:hover{text-decoration:underline}
+
+.grid{display:grid;gap:16px;min-width:0}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g-21{grid-template-columns:2fr 1fr}
+.g-12{grid-template-columns:1fr 2fr}
+.col{display:flex;flex-direction:column;gap:16px;min-width:0}
+
+.tag{
+  font-size:11px;font-weight:700;color:var(--mut);letter-spacing:.03em;
+  background:#1c2538;border:1px solid var(--line);padding:4px 10px;border-radius:999px;white-space:nowrap;
+}
+.tag-ok{color:var(--ok);border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.08)}
+.tag-acc{color:var(--acc);border-color:rgba(255,176,32,.4);background:rgba(255,176,32,.08)}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.kpi{display:flex;flex-direction:column;gap:4px}
+.kpi-top{color:var(--mut);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.kpi b{font-size:30px;color:var(--acc);letter-spacing:-.02em;line-height:1.1}
+.kpi small{color:var(--mut)}
+
+/* ---------------- BADGES DE STATUS ---------------- */
+.b{font-size:11px;font-weight:800;letter-spacing:.04em;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.b-ok{background:rgba(52,211,153,.14);color:var(--ok)}
+.b-info{background:rgba(96,165,250,.14);color:var(--info)}
+.b-warn{background:rgba(251,191,36,.14);color:var(--warn)}
+.b-err{background:rgba(248,113,113,.14);color:var(--err)}
+.b-mut{background:rgba(143,160,192,.14);color:#9fb0cd}
+.b-acc{background:rgba(255,176,32,.16);color:var(--acc)}
+.b-alta{background:rgba(248,113,113,.14);color:var(--err)}
+.b-media{background:rgba(251,191,36,.14);color:var(--warn)}
+.b-baixa{background:rgba(52,211,153,.14);color:var(--ok)}
+
+/* ---------------- BOTÕES ---------------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:10px 16px;border-radius:10px;font-weight:700;font-size:14px;
+  border:1px solid var(--line);background:#1c2538;color:var(--txt);cursor:pointer;
+  font-family:inherit;transition:.15s;
+}
+.btn:hover{background:#232f4a;border-color:#33436b}
+.btn-pri{
+  background:linear-gradient(135deg,var(--acc),var(--acc2));
+  border:none;color:#221302;box-shadow:0 6px 18px rgba(255,122,26,.25);
+}
+.btn-pri:hover{background:linear-gradient(135deg,#ffc14d,#ff8b34)}
+.btn-ghost{background:transparent}
+.btn-ghost:hover{background:rgba(255,255,255,.04)}
+.btn-danger{background:#2a1414;border-color:#7f1d1d;color:#fca5a5}
+.acoes{display:flex;gap:10px;flex-wrap:wrap}
+.form .btn{width:100%}
+
+/* ---------------- FORMULÁRIOS ---------------- */
+.form{display:grid;gap:14px}
+.fld label{
+  display:block;font-size:11px;font-weight:800;color:var(--mut);
+  text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;
+}
+.fld input,.fld select,.fld textarea{
+  width:100%;background:var(--campo);border:1px solid var(--line);color:var(--txt);
+  padding:10px 12px;border-radius:10px;font:inherit;transition:.15s;
+}
+.fld input:focus,.fld select:focus,.fld textarea:focus{
+  outline:none;border-color:var(--acc);box-shadow:0 0 0 3px rgba(255,176,32,.15);
+}
+.fld input[readonly]{color:var(--acc);font-weight:700}
+.fld textarea{resize:vertical;min-height:70px}
+.fld-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hint{font-size:12px;color:var(--mut)}
+.hint b{color:var(--acc)}
+
+/* Pílulas de prioridade (rádio estilizado só com CSS) */
+.pills{display:flex;gap:8px;flex-wrap:wrap}
+.pill{position:relative}
+.pill input{position:absolute;opacity:0;pointer-events:none}
+.pill span{
+  display:inline-block;padding:8px 16px;border:1px solid var(--line);border-radius:999px;
+  color:var(--mut);font-weight:700;font-size:13px;cursor:pointer;transition:.15s;
+}
+.pill span:hover{color:var(--txt)}
+.pill input:checked + span{background:rgba(255,176,32,.15);color:var(--acc);border-color:var(--acc)}
+.pill.alta input:checked + span{background:rgba(248,113,113,.14);color:var(--err);border-color:var(--err)}
+.pill.baixa input:checked + span{background:rgba(52,211,153,.14);color:var(--ok);border-color:var(--ok)}
+
+/* ---------------- FILA (FIFO) ---------------- */
+.fila{display:flex;flex-direction:column}
+.fila-item{
+  display:flex;align-items:center;gap:12px;position:relative;
+  padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--card2);
+}
+.fila-item + .fila-item{margin-top:12px}
+.fila-item:not(:last-child)::after{
+  content:"";position:absolute;left:30px;bottom:-13px;width:2px;height:13px;
+  background:linear-gradient(var(--line),transparent);
+}
+.pos{
+  width:36px;height:36px;border-radius:10px;display:grid;place-items:center;flex:none;
+  background:#1c2538;font-weight:800;color:var(--mut);font-size:13px;
+}
+.fila-item.prox{border-color:var(--acc);box-shadow:0 0 0 1px rgba(255,176,32,.25)}
+.fila-item.prox .pos{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#221302}
+.fi-info{flex:1;min-width:0}
+.fi-info strong{display:block;font-size:14px}
+.fi-info small{display:block;color:var(--mut);font-size:12px}
+.fi-badges{display:flex;gap:6px;align-items:center}
+
+/* ---------------- PILHA (mochila LIFO) ---------------- */
+.pilha{display:flex;flex-direction:column}
+.caixa{
+  display:flex;align-items:center;gap:12px;position:relative;
+  padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card2);
+}
+.caixa + .caixa{margin-top:8px}
+.caixa:nth-child(2){margin-left:14px}
+.caixa:nth-child(3){margin-left:28px}
+.caixa:nth-child(4){margin-left:42px}
+.caixa:nth-child(5){margin-left:56px}
+.caixa.topo{border-color:var(--acc);background:rgba(255,176,32,.07)}
+.tag-topo{
+  position:absolute;top:-10px;right:12px;background:linear-gradient(135deg,var(--acc),var(--acc2));
+  color:#221302;font-size:10px;font-weight:800;letter-spacing:.05em;padding:2px 10px;border-radius:999px;
+}
+
+/* ---------------- LISTA DE FROTA / LINHAS DE RESULTADO ---------------- */
+.frota li{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px dashed #1e2a42}
+.frota li:last-child{border:none}
+.frota .fi-info{flex:1}
+
+.res-linha{
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+  padding:9px 0;border-bottom:1px dashed #1e2a42;font-size:14px;
+}
+.res-linha:last-child{border:none}
+.res-linha > span:first-child{color:var(--mut)}
+
+.aviso{
+  display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;
+  border:1px dashed rgba(52,211,153,.5);background:rgba(52,211,153,.06);
+  color:var(--ok);font-weight:600;font-size:14px;
+}
+.aviso.acc{border-color:rgba(255,176,32,.5);background:rgba(255,176,32,.06);color:var(--acc)}
+
+/* Cartões de rádio (selecionar entregador) */
+.radio-card{display:block;position:relative}
+.radio-card input{position:absolute;opacity:0;pointer-events:none}
+.rc-body{
+  display:flex;align-items:center;gap:12px;padding:12px;cursor:pointer;
+  border:1px solid var(--line);border-radius:12px;background:var(--card2);transition:.15s;
+}
+.rc-body:hover{border-color:#33436b}
+.radio-card input:checked + .rc-body{border-color:var(--acc);background:rgba(255,176,32,.07)}
+.radio-card + .radio-card{margin-top:10px}
+.rc-info{flex:1}
+.rc-info strong{display:block;font-size:14px}
+.rc-info small{color:var(--mut)}
+
+/* ---------------- TABELA (vetor) ---------------- */
+.tbl-wrap{overflow-x:auto}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+.tbl th{
+  text-align:left;color:var(--mut);font-size:11px;text-transform:uppercase;
+  letter-spacing:.07em;padding:10px;border-bottom:1px solid var(--line);
+}
+.tbl td{padding:12px 10px;border-bottom:1px solid #1d2639;vertical-align:middle}
+.tbl tbody tr:hover td{background:#161f36}
+.tbl .num{color:var(--mut);font-weight:700}
+
+/* ---------------- MAPA (matriz 2D) ---------------- */
+.mapa-box{display:grid;grid-template-columns:auto 1fr;grid-template-rows:1fr auto;gap:4px}
+.eixo-y{display:grid;grid-template-rows:repeat(10,1fr);color:var(--mut);font-size:11px;justify-items:center;padding-right:4px}
+.eixo-x{grid-column:2;display:grid;grid-template-columns:repeat(10,1fr);color:var(--mut);font-size:11px;justify-items:center;padding-top:4px}
+.mapa{
+  position:relative;aspect-ratio:1/1;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  background:
+    radial-gradient(circle at 25% 15%,rgba(255,176,32,.06),transparent 45%),
+    repeating-linear-gradient(to right,var(--line) 0 1px,transparent 1px calc(100%/10)),
+    repeating-linear-gradient(to bottom,var(--line) 0 1px,transparent 1px calc(100%/10)),
+    linear-gradient(180deg,#0e1526,#0b1120);
+}
+.mk{
+  position:absolute;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+  transform:translate(-50%,-50%);font-size:16px;background:#1c2538;border:1px solid var(--line);
+  box-shadow:0 4px 10px rgba(0,0,0,.4);z-index:2;
+}
+.mk i{
+  position:absolute;top:105%;left:50%;transform:translateX(-50%);
+  font-size:10px;font-style:normal;color:var(--mut);white-space:nowrap;
+  background:rgba(10,15,28,.85);padding:1px 7px;border-radius:6px;border:1px solid var(--line);
+}
+.mk-central{background:rgba(255,176,32,.16);border-color:var(--acc)}
+.mk-moto{background:rgba(96,165,250,.14);border-color:var(--info)}
+.mk-entrega{background:rgba(52,211,153,.12);border-color:var(--ok)}
+.legenda{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;color:var(--mut);font-size:12px}
+.legenda span{display:flex;align-items:center;gap:7px}
+.chip{width:12px;height:12px;border-radius:4px;display:inline-block;flex:none}
+.chip-acc{background:var(--acc)}
+.chip-info{background:var(--info)}
+.chip-ok{background:var(--ok)}
+
+.formula{
+  background:var(--campo);border:1px solid var(--line);border-radius:10px;
+  padding:12px;text-align:center;color:var(--acc);font-weight:700;
+  font-family:ui-monospace,Consolas,monospace;font-size:14px;margin:10px 0;
+}
+
+/* ---------------- GRÁFICOS (só CSS) ---------------- */
+.barras{display:flex;align-items:flex-end;gap:18px;height:230px;padding-top:12px}
+.bar{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:7px;min-width:0}
+.bar i{font-style:normal;font-weight:800;font-size:13px}
+.bar .fill{width:100%;border-radius:9px 9px 4px 4px;background:linear-gradient(180deg,var(--acc),var(--acc2))}
+.bar b{color:var(--mut);font-size:12px;font-weight:600;text-align:center}
+
+.donut{
+  width:170px;aspect-ratio:1/1;border-radius:50%;position:relative;margin:14px auto;
+  background:conic-gradient(var(--ok) 0 40%,var(--info) 40% 80%,#64748b 80% 100%);
+}
+.donut-buraco{
+  position:absolute;inset:20%;border-radius:50%;background:var(--card2);
+  border:1px solid var(--line);display:grid;place-content:center;text-align:center;
+}
+.donut-buraco b{font-size:24px;color:var(--txt)}
+.donut-buraco small{color:var(--mut)}
+.leg-row{display:flex;align-items:center;gap:9px;padding:6px 0;font-size:13px;color:var(--mut)}
+.leg-row b{margin-left:auto;color:var(--txt)}
+
+.prog{height:8px;background:#1c2538;border-radius:999px;overflow:hidden;flex:1}
+.prog i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+.meta-linha{display:flex;align-items:center;gap:12px;padding:10px 0;font-size:13px}
+.meta-linha > span:first-child{width:130px;color:var(--mut)}
+.meta-linha b{width:56px;text-align:right}
+
+/* ---------------- TELA DE LOGIN ---------------- */
+.login-body{
+  min-height:100vh;display:grid;place-items:center;padding:20px;
+  background:
+    radial-gradient(900px 500px at 12% 0%,rgba(255,122,26,.14),transparent 60%),
+    radial-gradient(700px 500px at 88% 100%,rgba(96,165,250,.12),transparent 60%),
+    repeating-linear-gradient(to right,rgba(255,255,255,.03) 0 1px,transparent 1px 44px),
+    repeating-linear-gradient(to bottom,rgba(255,255,255,.03) 0 1px,transparent 1px 44px),
+    var(--bg);
+}
+.login-card{
+  width:min(430px,100%);background:rgba(19,26,44,.9);border:1px solid var(--line);
+  border-radius:20px;padding:34px 30px;box-shadow:var(--sombra);
+}
+.login-card .logo-ic{width:56px;height:56px;font-size:28px;border-radius:16px;margin:0 auto}
+.login-card h1{font-size:24px;text-align:center;margin-top:14px;letter-spacing:-.01em}
+.login-sub{text-align:center;color:var(--mut);font-size:13px;margin:4px 0 24px}
+.divisor{display:flex;align-items:center;gap:12px;color:var(--mut);font-size:12px;margin:18px 0}
+.divisor::before,.divisor::after{content:"";flex:1;height:1px;background:var(--line)}
+.centro{width:100%}
+.login-rodape{text-align:center;color:var(--mut);font-size:11px;margin-top:22px}
+
+/* ---------------- RESPONSIVO ---------------- */
+@media (max-width:1040px){
+  .g2,.g3,.g-21,.g-12{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  .app{grid-template-columns:1fr}
+  .sidebar{
+    position:static;height:auto;flex-direction:row;align-items:center;
+    gap:14px;padding:12px 16px;overflow-x:auto;
+  }
+  .logo{padding:0}
+  .nav{flex-direction:row;gap:6px}
+  .nav a{padding:9px 12px;border-left:none;border-radius:999px;white-space:nowrap}
+  .nav a.ativo{border-left:none}
+  .side-foot{display:none}
+  main{padding:18px 16px 32px}
+  .fld-2{grid-template-columns:1fr}
+  .barras{gap:9px;height:190px}
+}
