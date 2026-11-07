@@ -1,0 +1,28 @@
+/* Estilos exclusivos da tela inicial (index.html).
+   O restante do visual vem do style.css. */
+
+.login-pagina {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+}
+
+.login-card .card-head {
+  justify-content: center;
+}
+
+.login-sub {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.login-btn {
+  width: 100%;
+}

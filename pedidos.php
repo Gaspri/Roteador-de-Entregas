@@ -57,7 +57,7 @@ $nomesPrio = ["alta" => "Alta", "media" => "Média", "baixa" => "Baixa"];
       <a href="mapa.html">🗺️ Mapa</a>
       <a href="busca.html">🔎 Busca</a>
       <a href="estatisticas.html">📈 Estatísticas</a>
-      <a href="index.html" class="sair">⏻ Sair</a>
+      <a href="login.html" class="sair">⏻ Sair</a>
     </nav>
     <div class="side-foot"><span class="dot ok"></span> Central online · Turno tarde</div>
   </aside>
